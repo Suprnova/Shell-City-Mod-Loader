@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31025.194
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shell City Mod Loader", "Shell City Mod Loader.csproj", "{125B5059-D6A6-438F-9F53-248E67009EC4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{125B5059-D6A6-438F-9F53-248E67009EC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{125B5059-D6A6-438F-9F53-248E67009EC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{125B5059-D6A6-438F-9F53-248E67009EC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{125B5059-D6A6-438F-9F53-248E67009EC4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {034CD376-8DDB-4EBD-8E50-C9F67701BA52}
+	EndGlobalSection
+EndGlobal
