@@ -31,7 +31,7 @@ namespace Shell_City_Mod_Loader
                 mod = IniParse.Parse(iniDiag.FileName);
                 mod.Directory = Path.Combine(Directory.GetParent(mod.Source).FullName, mod.Directory);
                 mod.Image = Path.Combine(Directory.GetParent(mod.Source).FullName, mod.Image);
-                if (!Directory.Exists(mod.Directory) || !File.Exists(mod.Image))
+                if (!Directory.Exists(mod.Directory))
                 {
                     MessageBox.Show("This is not a valid .ini configuration! Double check your selection or contact the mod creator.", "Error!");
                     return;
@@ -47,7 +47,10 @@ namespace Shell_City_Mod_Loader
             Description.Text = mod.Description;
             Authors.Text = mod.Authors;
             ModDir.Text = mod.Directory;
-            Cover.Source = new BitmapImage(new Uri(mod.Image));
+            if (File.Exists(mod.Image))
+                Cover.Source = new BitmapImage(new Uri(mod.Image));
+            else
+                Cover.Source = new BitmapImage();
         }
 
         private void InstallMod(object sender, RoutedEventArgs e)

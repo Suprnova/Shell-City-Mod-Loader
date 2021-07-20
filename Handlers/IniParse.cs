@@ -22,7 +22,6 @@ namespace Shell_City_Mod_Loader.Handlers
                 ini.Authors = modData["Installer"]["Authors"];
                 ini.Description = modData["Installer"]["Description"];
                 ini.Directory = modData["Installer"]["Directory"];
-                ini.Image = modData["Installer"]["Image"];
             }
             catch
             {
@@ -30,8 +29,17 @@ namespace Shell_City_Mod_Loader.Handlers
                 return null;
             }
 
+            try
+            {
+                IniData modData = parser.ReadFile(path);
+                ini.Image = modData["Installer"]["Image"];
+            }
+            catch
+            {
+                ini.Image = null;
+            }
+
             return ini;
         }
     }
 }
-
