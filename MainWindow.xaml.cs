@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media.Imaging;
 
@@ -52,32 +53,34 @@ namespace Shell_City_Mod_Loader
 
         private void InstallMod(object sender, RoutedEventArgs e)
         {
-            if (Directory.Exists(ModDir.Text) && Directory.Exists(InstallDir.Text))
+            Install.IsEnabled = false;
+            InstallTask(ModDir.Text, Path.Combine(InstallDir.Text, "files"));
+        }
+
+        public async Task InstallTask(string src, string dest)
+        {
+            // i hate c# i/o operations so much
+            if (Directory.Exists(src) && Directory.Exists(InstallDir.Text))
             {
-                // i hate c# i/o operations so much
-                foreach (string file in Directory.GetFiles(ModDir.Text))
+                if (!Directory.Exists(dest))
+                    Directory.CreateDirectory(dest);
+                foreach (string file in Directory.EnumerateFiles(src))
                 {
-                    if (File.Exists(Path.Combine(InstallDir.Text, "files", Path.GetFileName(file))))
-                    {
-                        File.Delete(Path.Combine(InstallDir.Text, "files", Path.GetFileName(file)));
-                    }
-                    File.Move(file, Path.Combine(InstallDir.Text, "files", Path.GetFileName(file)));
+                    using FileStream source = File.Open(file, FileMode.Open);
+                    using FileStream destination = File.Create(Path.Combine(dest, Path.GetFileName(file)));
+                    await source.CopyToAsync(destination);
                 }
-                foreach (string directory in Directory.GetDirectories(ModDir.Text))
+                foreach (string directory in Directory.EnumerateDirectories(src))
                 {
-                    if (!Directory.Exists(Path.Combine(InstallDir.Text, "files", Path.GetFileName(directory))))
+                    string destDir = Path.Combine(dest, Path.GetFileName(directory));
+                    if (!Directory.Exists(destDir))
+                        Directory.CreateDirectory(destDir);
+                    foreach (string file in Directory.EnumerateFiles(directory))
                     {
-                        Directory.CreateDirectory(Path.Combine(InstallDir.Text, "files", Path.GetFileName(directory)));
+                        using FileStream source = File.Open(file, FileMode.Open);
+                        using FileStream destination = File.Create(Path.Combine(destDir, Path.GetFileName(file)));
+                        await source.CopyToAsync(destination);
                     }
-                    foreach (string file in Directory.GetFiles(directory))
-                    {
-                        if (File.Exists(Path.Combine(InstallDir.Text, "files", Path.GetFileName(directory), Path.GetFileName(file))))
-                        {
-                            File.Delete(Path.Combine(InstallDir.Text, "files", Path.GetFileName(directory), Path.GetFileName(file)));
-                        }
-                        File.Move(file, Path.Combine(InstallDir.Text, "files", Path.GetFileName(directory), Path.GetFileName(file)));
-                    }
-                    Directory.Delete(directory);
                 }
                 MessageBox.Show($"{mod.Name} was installed correctly! This application will now close.");
                 Environment.Exit(1);
@@ -95,7 +98,7 @@ namespace Shell_City_Mod_Loader
             {
                 if (!Directory.Exists(Path.Combine(folderDiag.SelectedPath, "files")) || !Directory.Exists(Path.Combine(folderDiag.SelectedPath, "sys")))
                 {
-                    MessageBoxResult result = MessageBox.Show($"This doesn't look like a valid extraction of a {mod.Game} disc! Are you sure you want to continue?", "Error!", MessageBoxButton.YesNo);
+                    MessageBoxResult result = MessageBox.Show($"This doesn't look like a valid extraction of a {(string.IsNullOrEmpty(mod.Game) ? "Heavy Iron GameCube" : mod.Game)} disc! Are you sure you want to continue?", "Error!", MessageBoxButton.YesNo);
                     if (result == MessageBoxResult.No)
                         return;
                 }
