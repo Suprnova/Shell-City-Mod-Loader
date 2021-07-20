@@ -1,6 +1,5 @@
 ﻿using System;
 using System.IO;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media.Imaging;
 
@@ -53,36 +52,13 @@ namespace Shell_City_Mod_Loader
 
         private void InstallMod(object sender, RoutedEventArgs e)
         {
-            Install.IsEnabled = false;
-            InstallTask(ModDir.Text, Path.Combine(InstallDir.Text, "files"));
-        }
-
-        public async Task InstallTask(string src, string dest)
-        {
-            // i hate c# i/o operations so much
-            if (Directory.Exists(src) && Directory.Exists(InstallDir.Text))
+            if (Directory.Exists(ModDir.Text) && Directory.Exists(InstallDir.Text))
             {
-                if (!Directory.Exists(dest))
-                    Directory.CreateDirectory(dest);
-                foreach (string file in Directory.EnumerateFiles(src))
-                {
-                    using FileStream source = File.Open(file, FileMode.Open);
-                    using FileStream destination = File.Create(Path.Combine(dest, Path.GetFileName(file)));
-                    await source.CopyToAsync(destination);
-                }
-                foreach (string directory in Directory.EnumerateDirectories(src))
-                {
-                    string destDir = Path.Combine(dest, Path.GetFileName(directory));
-                    if (!Directory.Exists(destDir))
-                        Directory.CreateDirectory(destDir);
-                    foreach (string file in Directory.EnumerateFiles(directory))
-                    {
-                        using FileStream source = File.Open(file, FileMode.Open);
-                        using FileStream destination = File.Create(Path.Combine(destDir, Path.GetFileName(file)));
-                        await source.CopyToAsync(destination);
-                    }
-                }
-                MessageBox.Show($"{mod.Name} was installed correctly! This application will now close.");
+                Install.IsEnabled = false;
+                Log log = new Log();
+                log.Owner = this;
+                log.ShowDialog();
+                MessageBox.Show("The mod has been installed successfully! This application will now close.");
                 Environment.Exit(1);
             }
             else

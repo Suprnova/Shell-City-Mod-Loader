@@ -42,7 +42,7 @@
         <Grid Grid.ColumnSpan="8" Grid.RowSpan="2"/>
 
         <Image x:Name="Cover" Height="150" Width="150" Grid.Column="5" Grid.ColumnSpan="2" HorizontalAlignment="Left" Grid.RowSpan="5" Grid.Row="1" Margin="148,4,0,4"/>
-        <Label Grid.Column="1" Grid.Row="1" FontSize="14" VerticalAlignment="Bottom" HorizontalAlignment="Left">Mod Name</Label>
+        <Label x:Name="ModName" Grid.Column="1" Grid.Row="1" FontSize="14" VerticalAlignment="Bottom" HorizontalAlignment="Left">Mod Name</Label>
         <TextBox x:Name="Name" Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="2" FontSize="18" IsEnabled="False"></TextBox>
         <Label Grid.Column="1" Grid.Row="4" FontSize="14" VerticalAlignment="Bottom" HorizontalAlignment="Left">Authors</Label>
         <TextBox x:Name="Authors" Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="5" FontSize="18" IsEnabled="False"></TextBox>
