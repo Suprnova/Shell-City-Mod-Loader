@@ -8,7 +8,6 @@ using Ookii.Dialogs.Wpf;
 using Shell_City_Mod_Loader.Classes;
 using Shell_City_Mod_Loader.Handlers;
 
-
 namespace Shell_City_Mod_Loader
 {
     public partial class MainWindow : Window
@@ -18,8 +17,6 @@ namespace Shell_City_Mod_Loader
         {
             InitializeComponent();
         }
-
-
         private void OpenIni(object sender, RoutedEventArgs e)
         {
             var iniDiag = new VistaOpenFileDialog()
@@ -32,9 +29,9 @@ namespace Shell_City_Mod_Loader
             {
                 if (!iniDiag.FileName.EndsWith(".ini"))
                 {
-                    MessageBox.Show("This is not a valid .ini configuration! Double check your selection or contact the mod creator.", 
-                        "Error", 
-                        MessageBoxButton.OK, 
+                    MessageBox.Show("This is not a valid .ini configuration! Double check your selection or contact the mod creator.",
+                        "Error",
+                        MessageBoxButton.OK,
                         MessageBoxImage.Error);
                     return;
                 }
