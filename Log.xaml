@@ -6,6 +6,9 @@
         xmlns:local="clr-namespace:Shell_City_Mod_Loader"
         mc:Ignorable="d"
         Title="Installing mod..." Height="450" Width="500" WindowStartupLocation="CenterOwner" ResizeMode="NoResize">
+    <Window.Background>
+        <SolidColorBrush Opacity="1" Color="{StaticResource BackgroundMain}"/>
+    </Window.Background>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -13,8 +16,8 @@
         </Grid.RowDefinitions>
 
         <ScrollViewer x:Name="logScroll" Grid.Row="0" Margin="10,10,10,5" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
-            <TextBlock x:Name="LogBox" FontSize="12" Background="#FFECECEC"/>
+            <TextBlock x:Name="LogBox" FontSize="14" Foreground="{StaticResource ForegroundWhiteImportantBrush}" Background="{StaticResource BackgroundLightBrush}" FontFamily="Consolas"/>
         </ScrollViewer>
-        <Button x:Name="Finish" Grid.Row="1" Content="Finish" VerticalAlignment="Center" HorizontalAlignment="Center" Width="150" Height="26" Click="Finish_Click" IsEnabled="False"></Button>
+        <Button x:Name="Finish" Foreground="{StaticResource ForegroundWhiteImportantBrush}" Background="{StaticResource BackgroundLightBrush}" FontFamily="./Fonts/#Poppins" Grid.Row="1" Content="FINISH" VerticalAlignment="Center" HorizontalAlignment="Center" Width="120" Height="30" FontSize="14" Click="Finish_Click" BorderThickness="0" IsEnabled="False" Cursor="Hand"></Button>
     </Grid>
 </Window>
