@@ -1,4 +1,9 @@
+
 # Shell City
+
+<p align="center">
+  <img width="500px" src="_assets/shell%20city%20demo.png">
+</p>
 
 Shell City is a mod installer designed for The SpongeBob SquarePants Movie and Battle for Bikini Bottom on GameCube platforms, specifically optimized for Dolphin. If you are interested in distributing your mod in a format that is supported by Shell City, see below.
 
