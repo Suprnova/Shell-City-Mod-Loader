@@ -42,7 +42,7 @@
                 Grid.Row="1" 
                 HorizontalAlignment="Center"
                 Foreground="{StaticResource ForegroundWhiteImportantBrush}"
-                  FontFamily="./Fonts/#Poppins" TextAlignment="Center" Grid.RowSpan="2">v0.1</TextBlock>
+                  FontFamily="./Fonts/#Poppins" TextAlignment="Center" Grid.RowSpan="2">v0.2</TextBlock>
         </StackPanel>
         
         <!-- Developer info -->
