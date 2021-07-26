@@ -51,3 +51,9 @@ Image=cover.jpg
 This program is licensed under the Do What The F*ck You Want To Public License (WTFPL). More information can be found at [LICENSE](https://github.com/Suprnova/Shell-City-Mod-Loader/blob/main/LICENSE). 
 
 SpongeBob SquarePants: Battle for Bikini Bottom (BFBB) and The SpongeBob SquarePants Movie (TSSM) are owned by their respective copyright holders, including but not limited to Heavy Iron Studios, Nickelodeon, and Viacom.
+
+This program uses Poppins under the Open Font License—Copyright 2020 The Poppins Project Authors (https://github.com/itfoundry/Poppins)
+
+Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
+
+Icons made by <a href="https://www.flaticon.com/authors/kiranshastry" title="Kiranshastry">Kiranshastry</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
