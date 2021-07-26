@@ -5,56 +5,91 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Shell_City_Mod_Loader"
         mc:Ignorable="d"
-        Title="Shell City Mod Loader" Height="650" Width="1000" ResizeMode="NoResize">
+        Title="Shell City Mod Loader" Height="500" Width="700" ResizeMode="CanMinimize">
+    <Window.Background>
+        <SolidColorBrush Opacity="1" Color="#0f111a"/>
+    </Window.Background>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height=".25*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height=".25*"/>
+            <RowDefinition Height="120"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="60"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0.25*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="0.25*"/>
+            <ColumnDefinition Width="180"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <Grid Grid.ColumnSpan="8" Grid.RowSpan="2"/>
+        
+        <Rectangle Fill="#1b1d26" Grid.Column="0" Grid.RowSpan="3" Grid.Row="0"></Rectangle>
+        <Image Margin="12,8,12,8" Source="Images/icon.png" Stretch="Uniform"></Image>
+        
+        <!-- Title and version -->
+        <StackPanel Grid.Row="1" Grid.Column="0">
+            <TextBlock
+            Padding="0"
+            FontSize="22"
+            FontWeight="Light"
+            TextWrapping="Wrap"
+            LineHeight="26"
+            LineStackingStrategy="BlockLineHeight"
+            TextAlignment="Center"
+            Foreground="{StaticResource ForegroundCoralBrush}"
+            FontFamily="./Fonts/#Poppins"
+            Grid.Column="0"
+            Grid.Row="1">Shell City<LineBreak/>Mod Loader</TextBlock>
+            
+            <TextBlock 
+                Grid.Row="1" 
+                HorizontalAlignment="Center"
+                Foreground="{StaticResource ForegroundWhiteImportantBrush}"
+                  FontFamily="./Fonts/#Poppins" TextAlignment="Center" Grid.RowSpan="2">v0.1</TextBlock>
+        </StackPanel>
+        
+        <!-- Developer info -->
+        <TextBlock
+            Foreground="{StaticResource ForegroundWhiteStandardBrush}" 
+            FontFamily="./Fonts/#Poppins"
+            Grid.Column="0"
+            Grid.Row="2"
+            HorizontalAlignment="Center" TextAlignment="Center">
+            Developed by Suprnova<LineBreak></LineBreak>and Pepperpot<LineBreak/>View on <Hyperlink TextDecorations="None" Foreground="{StaticResource ForegroundPurpleBrush}" NavigateUri="https://github.com/Suprnova/Shell-City-Mod-Loader">GitHub</Hyperlink></TextBlock>
+        
+        <!-- Mod information -->
+        <StackPanel Grid.Column="1" Grid.Row="0" Grid.RowSpan="3" Margin="20">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5*"></ColumnDefinition>
+                    <ColumnDefinition Width="2*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <StackPanel Margin="0">
+                    <Label x:Name="ModName" Foreground="{StaticResource ForegroundBlueStandardBrush}" FontFamily="./Fonts/#Poppins" FontSize="12" FontWeight="DemiBold" HorizontalContentAlignment="Left">Mod Name</Label>
+                    <TextBox x:Name="Name" Background="{StaticResource BackgroundLightBrush}" FontFamily="./Fonts/#Poppins" FontSize="14" Padding="4" IsEnabled="False" Margin="12,0,22,0" Foreground="{StaticResource ForegroundWhiteStandardBrush}"></TextBox>
 
-        <Image x:Name="Cover" Height="150" Width="150" Grid.Column="5" Grid.ColumnSpan="2" HorizontalAlignment="Left" Grid.RowSpan="5" Grid.Row="1" Margin="148,4,0,4"/>
-        <Label x:Name="ModName" Grid.Column="1" Grid.Row="1" FontSize="14" VerticalAlignment="Bottom" HorizontalAlignment="Left">Mod Name</Label>
-        <TextBox x:Name="Name" Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="2" FontSize="18" IsEnabled="False"></TextBox>
-        <Label Grid.Column="1" Grid.Row="4" FontSize="14" VerticalAlignment="Bottom" HorizontalAlignment="Left">Authors</Label>
-        <TextBox x:Name="Authors" Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="5" FontSize="18" IsEnabled="False"></TextBox>
-        <Label Grid.Column="1" Grid.Row="7" FontSize="14" VerticalAlignment="Bottom" HorizontalAlignment="Left">Description</Label>
-        <TextBox x:Name="Description" Grid.Column="1" Grid.ColumnSpan="6" Grid.Row="8" Grid.RowSpan="3" FontSize="18" TextWrapping="Wrap" IsEnabled="False"></TextBox>
-        <Label Grid.Column="1" Grid.Row="12" FontSize="14" VerticalAlignment="Bottom" HorizontalAlignment="Left">Mod directory</Label>
-        <TextBox x:Name="ModDir" Grid.Column="1" Grid.ColumnSpan="6" Grid.Row="13" FontSize="18" IsEnabled="False"></TextBox>
-        <Label Grid.Column="1" Grid.Row="15" FontSize="14" VerticalAlignment="Bottom" HorizontalAlignment="Left">Install directory</Label>
-        <TextBox x:Name="InstallDir" Grid.Column="1" Grid.ColumnSpan="5" Grid.Row="16" FontSize="18"/>
-        <Button x:Name="Browse" Grid.Column="6" Grid.Row="16" FontSize="18" Click="BrowseFolder">...</Button>
-        <Button x:Name="Open" Grid.Column="1" Grid.Row="18" FontSize="18" Click="OpenIni">Open .ini</Button>
-        <TextBlock x:Name="Game" Grid.Column="2" Grid.ColumnSpan="4" Grid.Row="18" FontSize="18" TextAlignment="Center" VerticalAlignment="Center"></TextBlock>
-        <Button x:Name="Install" Grid.Column="6" Grid.Row="18" FontSize="18" Click="InstallMod">Install</Button>
+                    <Label Foreground="{StaticResource ForegroundBlueStandardBrush}" FontFamily="./Fonts/#Poppins" FontWeight="DemiBold" FontSize="12" VerticalAlignment="Bottom" HorizontalAlignment="Left" >Author(s)</Label>
+                    <TextBox x:Name="Authors" FontFamily="./Fonts/#Poppins" Background="{StaticResource BackgroundLightBrush}" FontSize="14" Padding="4" IsEnabled="False" Margin="12,0,22,0" Foreground="{StaticResource ForegroundWhiteStandardBrush}"></TextBox>
+                </StackPanel>
+                <Image x:Name="Cover" Grid.Column="1" Height="120" Width="120" HorizontalAlignment="Right" Source="Images/placeholder.png" Margin="0,0,12,0"></Image>
+            </Grid>
+
+            <Label Foreground="{StaticResource ForegroundBlueStandardBrush}" FontFamily="./Fonts/#Poppins" FontWeight="DemiBold" FontSize="12" VerticalAlignment="Bottom" HorizontalAlignment="Left">Description</Label>
+            <TextBox x:Name="Description" FontFamily="./Fonts/#Poppins" MinLines="3" Background="{StaticResource BackgroundLightBrush}" FontSize="14" Padding="4" TextWrapping="Wrap" Margin="12,0,12,0" IsEnabled="False" Foreground="{StaticResource ForegroundWhiteStandardBrush}"></TextBox>
+
+            <Label Foreground="{StaticResource ForegroundBlueStandardBrush}" FontFamily="./Fonts/#Poppins" FontWeight="DemiBold" FontSize="12" VerticalAlignment="Bottom" HorizontalAlignment="Left">Mod directory</Label>
+            <TextBox x:Name="ModDir" FontFamily="./Fonts/#Poppins" Background="{StaticResource BackgroundLightBrush}" FontSize="14" Padding="4" IsEnabled="False" Margin="12,0,12,0" Foreground="{StaticResource ForegroundWhiteStandardBrush}"></TextBox>
+
+            <Label Foreground="{StaticResource ForegroundBlueStandardBrush}" FontFamily="./Fonts/#Poppins" FontWeight="DemiBold" FontSize="12" VerticalAlignment="Bottom" HorizontalAlignment="Left">Install directory</Label>
+            <StackPanel Orientation="Horizontal">
+                <TextBox HorizontalAlignment="Left" FontFamily="./Fonts/#Poppins" Background="{StaticResource BackgroundLightBrush}" Width="260" x:Name="InstallDir" Grid.Column="1" Grid.ColumnSpan="5" Grid.Row="16" FontSize="14" Padding="4" Margin="12,0,12,0" Foreground="{StaticResource ForegroundWhiteStandardBrush}"/>
+                <Button x:Name="Browse" Background="{StaticResource BackgroundLightBrush}" FontSize="12" Foreground="{StaticResource ForegroundWhiteImportantBrush}" MinWidth="40" FontFamily="./Fonts/#Poppins" Click="BrowseFolder">...</Button>
+
+            </StackPanel>
+
+            <!-- Buttons -->
+            <StackPanel Orientation="Horizontal">
+                <Button x:Name="Open" Grid.Column="1" Grid.Row="1" FontSize="16" Click="OpenIni" Background="{StaticResource BackgroundLightBrush}" Foreground="{StaticResource ForegroundWhiteImportantBrush}" FontFamily="./Fonts/#Poppins" Width="150" Height="40" HorizontalAlignment="Left" BorderThickness="0" Cursor="Hand" IsDefault="True" Margin="12,12,12,12">OPEN MOD .INI</Button>
+                <Button x:Name="Install" Grid.Column="1" Grid.Row="1" FontSize="18" FontWeight="Medium" FontFamily="./Fonts/#Poppins" Click="InstallMod" Background="{StaticResource BackgroundGreenBrush}" Foreground="{StaticResource BackgroundMainBrush}" Width="150" Height="40" HorizontalAlignment="Left" BorderThickness="0" Cursor="Hand">INSTALL MOD</Button>
+            </StackPanel>
+            <TextBlock x:Name="Game" FontFamily="./Fonts/#Poppins" Foreground="{StaticResource ForegroundWhiteImportantBrush}" FontSize="14" TextAlignment="Center" VerticalAlignment="Center"></TextBlock>
+        </StackPanel>
     </Grid>
 </Window>

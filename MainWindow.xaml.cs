@@ -17,15 +17,22 @@ namespace Shell_City_Mod_Loader
         {
             InitializeComponent();
         }
-
         private void OpenIni(object sender, RoutedEventArgs e)
         {
-            var iniDiag = new VistaOpenFileDialog();
+            var iniDiag = new VistaOpenFileDialog()
+            {
+                DefaultExt = "ini",
+                Filter = "INI files (*.ini)|*.ini|All files (*.*)|*.*"
+            };
+
             if (iniDiag.ShowDialog() == true)
             {
                 if (!iniDiag.FileName.EndsWith(".ini"))
                 {
-                    MessageBox.Show("This is not a valid .ini configuration! Double check your selection or contact the mod creator.", "Error!");
+                    MessageBox.Show("This is not a valid .ini configuration! Double check your selection or contact the mod creator.",
+                        "Error",
+                        MessageBoxButton.OK,
+                        MessageBoxImage.Error);
                     return;
                 }
                 mod = IniParse.Parse(iniDiag.FileName);
@@ -33,7 +40,10 @@ namespace Shell_City_Mod_Loader
                 mod.Image = Path.Combine(Directory.GetParent(mod.Source).FullName, mod.Image);
                 if (!Directory.Exists(mod.Directory))
                 {
-                    MessageBox.Show("This is not a valid .ini configuration! Double check your selection or contact the mod creator.", "Error!");
+                    MessageBox.Show("This is not a valid .ini configuration! Double check your selection or contact the mod creator.",
+                        "Error",
+                        MessageBoxButton.OK,
+                        MessageBoxImage.Error);
                     return;
                 }
                 Update(mod);
