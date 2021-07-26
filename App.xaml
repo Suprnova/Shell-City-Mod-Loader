@@ -4,6 +4,11 @@
              xmlns:local="clr-namespace:Shell_City_Mod_Loader"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <!-- Order is important here -->
+                <ResourceDictionary Source="Styles/Colors.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
