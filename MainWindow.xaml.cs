@@ -60,7 +60,7 @@ namespace Shell_City_Mod_Loader
             if (File.Exists(mod.Image))
                 Cover.Source = new BitmapImage(new Uri(mod.Image));
             else
-                Cover.Source = new BitmapImage();
+                Cover.Source = new BitmapImage(new Uri("pack://application:,,,/Images/placeholder.png"));
         }
 
         private void InstallMod(object sender, RoutedEventArgs e)
@@ -71,12 +71,18 @@ namespace Shell_City_Mod_Loader
                 Log log = new Log();
                 log.Owner = this;
                 log.ShowDialog();
-                MessageBox.Show("The mod has been installed successfully! This application will now close.");
+                MessageBox.Show("The mod has been installed successfully! This application will now close.",
+                    "Success",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Information);
                 Environment.Exit(1);
             }
             else
             {
-                MessageBox.Show("Your directories are invalid and the mod cannot currently be installed. Please fix the issue and try again.", "Error!");
+                MessageBox.Show("Your directories are invalid and the mod cannot currently be installed. Please fix the issue and try again.", 
+                    "Error",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Error);
             }
         }
 
@@ -87,7 +93,10 @@ namespace Shell_City_Mod_Loader
             {
                 if (!Directory.Exists(Path.Combine(folderDiag.SelectedPath, "files")) || !Directory.Exists(Path.Combine(folderDiag.SelectedPath, "sys")))
                 {
-                    MessageBoxResult result = MessageBox.Show($"This doesn't look like a valid extraction of a {(string.IsNullOrEmpty(mod.Game) ? "Heavy Iron GameCube" : mod.Game)} disc! Are you sure you want to continue?", "Error!", MessageBoxButton.YesNo);
+                    MessageBoxResult result = MessageBox.Show($"This doesn't look like a valid extraction of a {(string.IsNullOrEmpty(mod.Game) ? "Heavy Iron GameCube" : mod.Game)} disc! Are you sure you want to continue?", 
+                        "Warning", 
+                        MessageBoxButton.YesNo, 
+                        MessageBoxImage.Warning);
                     if (result == MessageBoxResult.No)
                         return;
                 }

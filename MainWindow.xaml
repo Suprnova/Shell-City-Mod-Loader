@@ -52,7 +52,7 @@
             Grid.Column="0"
             Grid.Row="2"
             HorizontalAlignment="Center" TextAlignment="Center">
-            Developed by Suprnova<LineBreak></LineBreak>and Pepperpot<LineBreak/>View on <Hyperlink TextDecorations="None" Foreground="{StaticResource ForegroundPurpleBrush}" NavigateUri="https://github.com/Suprnova/Shell-City-Mod-Loader">GitHub</Hyperlink></TextBlock>
+            Developed by Suprnova<LineBreak></LineBreak>and Pepperpot<LineBreak/>View on <Hyperlink Name="GitHubHyperlink" TextDecorations="None" Foreground="{StaticResource ForegroundPurpleBrush}" NavigateUri="https://github.com/Suprnova/Shell-City-Mod-Loader">GitHub</Hyperlink></TextBlock>
         
         <!-- Mod information -->
         <StackPanel Grid.Column="1" Grid.Row="0" Grid.RowSpan="3" Margin="20">
@@ -80,7 +80,7 @@
             <Label Foreground="{StaticResource ForegroundBlueStandardBrush}" FontFamily="./Fonts/#Poppins" FontWeight="DemiBold" FontSize="12" VerticalAlignment="Bottom" HorizontalAlignment="Left">Install directory</Label>
             <StackPanel Orientation="Horizontal">
                 <TextBox HorizontalAlignment="Left" FontFamily="./Fonts/#Poppins" Background="{StaticResource BackgroundLightBrush}" Width="260" x:Name="InstallDir" Grid.Column="1" Grid.ColumnSpan="5" Grid.Row="16" FontSize="14" Padding="4" Margin="12,0,12,0" Foreground="{StaticResource ForegroundWhiteStandardBrush}"/>
-                <Button x:Name="Browse" Background="{StaticResource BackgroundLightBrush}" FontSize="12" Foreground="{StaticResource ForegroundWhiteImportantBrush}" MinWidth="40" FontFamily="./Fonts/#Poppins" Click="BrowseFolder">...</Button>
+                <Button x:Name="Browse" Background="{StaticResource BackgroundLightBrush}" FontSize="18" Foreground="{StaticResource ForegroundWhiteImportantBrush}" MinWidth="40" FontFamily="./Fonts/#Poppins" Click="BrowseFolder" Cursor="Hand">...</Button>
 
             </StackPanel>
 

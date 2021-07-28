@@ -30,6 +30,10 @@ namespace Shell_City_Mod_Loader
 
         public async Task InstallTask(string src, string dest)
         {
+            String modName = ((MainWindow) Application.Current.MainWindow).Name.Text;
+            int numOfFilesCopied = 0;
+
+            LogBox.Inlines.Add($"Installing {modName}...{Environment.NewLine}");
             // i hate c# i/o operations so much
             if (!Directory.Exists(dest))
                 Directory.CreateDirectory(dest);
@@ -38,7 +42,8 @@ namespace Shell_City_Mod_Loader
                 using FileStream source = File.Open(file, FileMode.Open);
                 using FileStream destination = File.Create(Path.Combine(dest, Path.GetFileName(file)));
                 await source.CopyToAsync(destination);
-                LogBox.Inlines.Add($"{Environment.NewLine}Copied {source.Name} to {destination.Name}.");
+                numOfFilesCopied++;
+                LogBox.Inlines.Add($"Copied {source.Name} to {destination.Name}.{Environment.NewLine}");
                 logScroll.ScrollToEnd();
             }
             foreach (string directory in Directory.EnumerateDirectories(src))
@@ -51,11 +56,12 @@ namespace Shell_City_Mod_Loader
                     using FileStream source = File.Open(file, FileMode.Open);
                     using FileStream destination = File.Create(Path.Combine(destDir, Path.GetFileName(file)));
                     await source.CopyToAsync(destination);
-                    LogBox.Inlines.Add($"{Environment.NewLine}Copied {source.Name} to {destination.Name}.");
+                    numOfFilesCopied++;
+                    LogBox.Inlines.Add($"Copied {source.Name} to {destination.Name}.{Environment.NewLine}");
                     logScroll.ScrollToEnd();
                 }
             }
-            LogBox.Inlines.Add($"{Environment.NewLine}{((MainWindow)Application.Current.MainWindow).ModName.Content} successfully installed!");
+            LogBox.Inlines.Add($"{modName} successfully installed! {numOfFilesCopied} file{(numOfFilesCopied == 1 ? "" : "s")} copied. {Environment.NewLine}");
             logScroll.ScrollToEnd();
             Finish.IsEnabled = true;
         }
