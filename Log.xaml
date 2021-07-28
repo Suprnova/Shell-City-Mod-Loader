@@ -5,19 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Shell_City_Mod_Loader"
         mc:Ignorable="d"
-        Title="Installing mod..." Height="450" Width="500" WindowStartupLocation="CenterOwner" ResizeMode="NoResize">
+        Title="Installation Log" Width="600" MaxHeight="450" WindowStartupLocation="CenterOwner" ResizeMode="NoResize" SizeToContent="Height">
     <Window.Background>
         <SolidColorBrush Opacity="1" Color="{StaticResource BackgroundMain}"/>
     </Window.Background>
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height=".15*"/>
-        </Grid.RowDefinitions>
 
-        <ScrollViewer x:Name="logScroll" Grid.Row="0" Margin="10,10,10,5" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+    <StackPanel>
+        <ScrollViewer x:Name="logScroll" Margin="20,20,20,0" MinHeight="300" MaxHeight="300" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
             <TextBlock x:Name="LogBox" FontSize="14" Foreground="{StaticResource ForegroundWhiteImportantBrush}" Background="{StaticResource BackgroundLightBrush}" FontFamily="Consolas"/>
         </ScrollViewer>
-        <Button x:Name="Finish" Foreground="{StaticResource ForegroundWhiteImportantBrush}" Background="{StaticResource BackgroundLightBrush}" FontFamily="./Fonts/#Poppins" Grid.Row="1" Content="FINISH" VerticalAlignment="Center" HorizontalAlignment="Center" Width="120" Height="30" FontSize="14" Click="Finish_Click" BorderThickness="0" IsEnabled="False" Cursor="Hand"></Button>
-    </Grid>
+        <Button x:Name="Finish" Foreground="{StaticResource ForegroundWhiteImportantBrush}" Background="{StaticResource BackgroundLightBrush}" FontFamily="./Fonts/#Poppins" Content="FINISH" VerticalAlignment="Center" HorizontalAlignment="Center" Width="120" Height="40" FontSize="18" Click="Finish_Click" Margin="12" BorderThickness="0" Cursor="Hand" IsEnabled="False" IsDefault="True"/>
+    </StackPanel>
 </Window>
