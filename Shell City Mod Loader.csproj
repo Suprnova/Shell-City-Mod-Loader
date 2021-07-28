@@ -13,11 +13,19 @@
   <ItemGroup>
     <None Remove="Images\icon.png" />
     <None Remove="Images\placeholder.png" />
+    <None Remove="LICENSE" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="LICENSE">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="ini-parser" Version="2.5.2" />
     <PackageReference Include="Ookii.Dialogs.Wpf" Version="3.1.0" />
+    <PackageReference Include="System.Security.Cryptography.Algorithms" Version="4.3.1" />
     <TrimmerRootAssembly Include="System.Runtime" />
     <TrimmerRootAssembly Include="System.Diagnostics.Debug" />
     <TrimmerRootAssembly Include="System.Runtime.Extensions" />
