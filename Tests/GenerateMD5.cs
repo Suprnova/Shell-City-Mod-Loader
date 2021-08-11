@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using System.Security.Cryptography;
@@ -12,9 +11,9 @@ namespace Shell_City_Mod_Loader.Tests
         // this doesn't need to be async because it's a test and not something used by the end-user.
         public static void Generate(string path)
         {
-            if (!Directory.Exists(Path.Combine(System.Reflection.Assembly.GetExecutingAssembly().Location, "md5s")))
-                Directory.CreateDirectory(Path.Combine(Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location), "md5s"));
-            FileStream write = File.Create(Path.Combine(Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location), "md5s", Path.GetFileName(path) + ".md5"));
+            if (!Directory.Exists(Path.Combine(System.Reflection.Assembly.GetExecutingAssembly().Location, "MD5")))
+                Directory.CreateDirectory(Path.Combine(Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location), "MD5"));
+            FileStream write = File.Create(Path.Combine(Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location), "MD5", Path.GetFileName(path) + ".md5"));
             using (var md5 = MD5.Create())
             {
                 using FileStream bootVerify = File.Open(Path.Combine(path, "sys", "boot.bin"), FileMode.Open);

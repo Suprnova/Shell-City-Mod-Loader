@@ -23,7 +23,7 @@
         <Rectangle Fill="#1b1d26" Grid.Column="0" Grid.RowSpan="3" Grid.Row="0"></Rectangle>
         <Image Margin="12,8,12,8" Source="Images/icon.png" Stretch="Uniform"></Image>
         
-        <!-- Title and version -->
+        <!-- Side Panel -->
         <StackPanel Grid.Row="1" Grid.Column="0">
             <TextBlock
             Padding="0"
@@ -42,7 +42,8 @@
                 Grid.Row="1" 
                 HorizontalAlignment="Center"
                 Foreground="{StaticResource ForegroundWhiteImportantBrush}"
-                  FontFamily="./Fonts/#Poppins" TextAlignment="Center" Grid.RowSpan="2">v0.2</TextBlock>
+                  FontFamily="./Fonts/#Poppins" TextAlignment="Center" Grid.RowSpan="2">v0.3</TextBlock>
+            <Button x:Name="MD5" Grid.Column="1" Grid.Row="1" FontSize="18" Background="{StaticResource BackgroundGreenBrush}" Foreground="{StaticResource BackgroundMainBrush}" FontFamily="./Fonts/#Poppins" Width="150" Height="40" HorizontalAlignment="Center" BorderThickness="0" Cursor="Hand" IsDefault="True" Margin="12,12,12,12" Click="MD5_Click" IsEnabled="False">VERIFY FILES</Button>
         </StackPanel>
         
         <!-- Developer info -->
@@ -52,7 +53,7 @@
             Grid.Column="0"
             Grid.Row="2"
             HorizontalAlignment="Center" TextAlignment="Center">
-            Developed by Suprnova<LineBreak></LineBreak>and Pepperpot<LineBreak/>View on <Hyperlink Name="GitHubHyperlink" TextDecorations="None" Foreground="{StaticResource ForegroundPurpleBrush}" NavigateUri="https://github.com/Suprnova/Shell-City-Mod-Loader">GitHub</Hyperlink></TextBlock>
+            Developed by Suprnova<LineBreak/>and Pepperpot<LineBreak/>View on <Hyperlink Name="GitHubHyperlink" TextDecorations="None" Foreground="{StaticResource ForegroundPurpleBrush}" NavigateUri="https://github.com/Suprnova/Shell-City-Mod-Loader">GitHub</Hyperlink></TextBlock>
         
         <!-- Mod information -->
         <StackPanel Grid.Column="1" Grid.Row="0" Grid.RowSpan="3" Margin="20">
@@ -89,7 +90,8 @@
                 <Button x:Name="Open" Grid.Column="1" Grid.Row="1" FontSize="16" Click="OpenIni" Background="{StaticResource BackgroundLightBrush}" Foreground="{StaticResource ForegroundWhiteImportantBrush}" FontFamily="./Fonts/#Poppins" Width="150" Height="40" HorizontalAlignment="Left" BorderThickness="0" Cursor="Hand" IsDefault="True" Margin="12,12,12,12">OPEN MOD .INI</Button>
                 <Button x:Name="Install" Grid.Column="1" Grid.Row="1" FontSize="18" FontWeight="Medium" FontFamily="./Fonts/#Poppins" Click="InstallMod" Background="{StaticResource BackgroundGreenBrush}" Foreground="{StaticResource BackgroundMainBrush}" Width="150" Height="40" HorizontalAlignment="Left" BorderThickness="0" Cursor="Hand">INSTALL MOD</Button>
             </StackPanel>
-            <TextBlock x:Name="Game" FontFamily="./Fonts/#Poppins" Foreground="{StaticResource ForegroundWhiteImportantBrush}" FontSize="14" TextAlignment="Center" VerticalAlignment="Center"></TextBlock>
+            <TextBlock x:Name="Game" FontFamily="./Fonts/#Poppins" FontWeight="Medium" Foreground="{StaticResource ForegroundWhiteImportantBrush}" FontSize="14" TextAlignment="Center" VerticalAlignment="Center"></TextBlock>
+            
         </StackPanel>
     </Grid>
 </Window>

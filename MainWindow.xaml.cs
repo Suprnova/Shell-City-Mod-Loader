@@ -7,6 +7,7 @@ using Ookii.Dialogs.Wpf;
 
 using Shell_City_Mod_Loader.Classes;
 using Shell_City_Mod_Loader.Handlers;
+using Shell_City_Mod_Loader.Tests;
 
 namespace Shell_City_Mod_Loader
 {
@@ -101,6 +102,26 @@ namespace Shell_City_Mod_Loader
                         return;
                 }
                 InstallDir.Text = folderDiag.SelectedPath;
+                MD5.IsEnabled = true;
+            }
+        }
+
+        private void MD5_Click(object sender, RoutedEventArgs e)
+        {
+            var response = MD5Verify.Verify(InstallDir.Text);
+            if (response.Item1)
+            {
+                MessageBox.Show($"This appears to be a valid installation of a {response.Item2} disc.",
+                    "Success",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Information);
+            }
+            else
+            {
+                MessageBox.Show($"This does not appear to be a valid installation of a Heavy Iron GameCube disc. Please verify that you extracted your files from Dolphin correctly. If you continue with installation, your installation of the mod may be unplayable.",
+                    "Warning",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Warning);
             }
         }
     }
