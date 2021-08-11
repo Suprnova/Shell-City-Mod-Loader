@@ -34,12 +34,10 @@ namespace Shell_City_Mod_Loader.Handlers
                         // if code reaches here, it means that it (most likely) couldn't find the file in question, so we should continue to the next md5 file
                         goto next;
                     }
-
                 }
                 md5.Dispose();
                 return Tuple.Create(true, Path.GetFileNameWithoutExtension(file).Replace(" 2", ""));
             next:;
-
             }
             md5.Dispose();
             return Tuple.Create(false, "N/A");
